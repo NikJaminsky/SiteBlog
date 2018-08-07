@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <title>MyBlog</title>
+        <link rel="stylesheet" href="/static/css/styles.css" />
+        {% block extrahead %}
+        {% endblock %}
+    </head>
+	<body>
+		<header>
+			<h1>My Blog</h1>
+		</header>
+		<nav>			
+			<a href="{% url 'list' %}" class="navlink">Главная</a>
+			<a href="{% url 'project' %}" class="navlink">Проекты</a>
+			<a href="{% url 'video' %}" class="navlink">Видео</a>
+			<!--<a href="{% url 'tutorial' %}" class="navlink">Руководства</a>-->
+		</nav>
+		<main>	
+			<div class="content">
+				{% block content %}Empty page{% endblock %}
+			</div> 
+			<div class="block">
+				<p>Ссылки</p>
+				<a href="https://github.com/" class=""><img src="/static/images/github.png" alt="GitHub"></a>
+				<a href="https://youtube.com/" class=""><img src="/static/images/youtube.png" alt="YouTube"></a>
+			</div><!--Добавить комментарии, сообщение(обратная связь) администратору-->
+		</main>
+		<footer>
+			<p>{% now "Y"%}</p>
+		</footer>		
+	</body>
+</html>

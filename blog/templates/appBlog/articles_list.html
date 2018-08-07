@@ -1,0 +1,12 @@
+{% extends 'appBlog/base.html' %}
+{% block content %}
+    {% for articles in object_list %} 
+        <p>
+			<h2><a href="{{ articles.get_absolute_url }}">{{ articles.title }}</a></h2>
+			<p>{{ articles.preview }}</p>
+		</p>
+		<hr>
+    {% empty %}
+    <p>Нет постов</p>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'appBlog/base.html' %}
+<form method="POST" action="/articles_detail">
+    {% csrf_token %}
+    <p>
+        <label>Введите имя</label><br>
+        <input type="text" name="name" />
+    </p>
+    <p>
+        <label>Введите Комментарий</label><br>
+        <input type="textarea" name="text" />
+    </p>
+    <input type="submit" value="Сохранить" >
+    </form>
+    {% if comments.count > 0 %}
+    <h2>Комментарии</h2>
+    <table>
+        <tr><th>Имя</th><th>Комментарий</th></tr>
+        {% for person in comments %}
+        <tr><td>{{ person.name }}</td><td>{{ person.text }}</td></tr>
+        {% endfor %}
+    </table>
+    {% endif %}
